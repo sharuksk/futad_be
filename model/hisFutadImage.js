@@ -2,28 +2,28 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const futadImage = new Schema ({
+const hisFutadImage = new Schema ({
     id:{
         type: String,
         required: true
     },
     face_image: {
-        type: String
+        type: String,
+        required: true
     },
     qr_image: {
-        type: String
+        type: String,
+        required: true
     },
     response: {
-        type: Boolean
+        type: Boolean,
+        required: true
     },
     entrytime: {
         type: Date,
         default: Date.now
-    },
-    image: {
-        type: String
     }
 });
 
 
-module.exports = Futad = mongoose.model('futad_image', futadImage);
+module.exports = HistoryFutad = mongoose.model('history_futad_image', hisFutadImage);
