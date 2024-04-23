@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 
 const futadImage = new Schema ({
     id:{
-        type: String,
-        required: true
+        type: String
     },
     face_image: {
         type: String

@@ -13,6 +13,7 @@ exports.handleSave = async (req, res) => {
     face_image: req.body.face_image,
     qr_image: req.body.qr_image,
     response: req.body.response,
+    image: req.body.image,
     });
 
   // const HisFutadData = new HistoryFutad({
@@ -22,7 +23,7 @@ exports.handleSave = async (req, res) => {
   //   response: req.body.response,
   //   });
 
-    await FutadData.save();
+    await FutadData.save().then(file => res.json(file));
     // await HisFutadData.save().then(file => res.json(file));
 };
 
