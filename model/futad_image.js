@@ -16,7 +16,12 @@ const futadImage = new Schema ({
         required: true
     },
     response: {
-        type: Boolean
+        type: Boolean,
+        required: true
+    },
+    entrytime: {
+        type: Date,
+        default: Date.now
     }
 });
 
