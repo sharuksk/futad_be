@@ -1,5 +1,6 @@
 const Futad = require("./model/futad_image")
 const HistoryFutad = require("./model/hisFutadImage")
+const FaceImage = require("./model/store_image")
 
 
 
@@ -29,18 +30,16 @@ exports.handleSave = async (req, res) => {
 
 exports.handleGetRes = async (req, res) => {  let data = await Futad.findOne({});
   console.log(data)
-  await res.json(data.image);
+  await res.json(data.response);
 };
 
 
 
 exports.handleEntryImage = async (req, res) => {
 
-  const FutadData = new Futad({
-    id: req.body.id,
-    face_image: req.body.face_image,
-    qr_image: req.body.qr_image
+  const StoreFace = new FaceImage({
+    image: req.body.image
     });
 
-    FutadData.save().then(file => res.json(file));
+    StoreFace.save().then(file => res.json(file));
 };
