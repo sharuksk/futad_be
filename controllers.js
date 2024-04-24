@@ -30,8 +30,7 @@ exports.handleSave = async (req, res) => {
 
 
 exports.handleGetRes = async (req, res) => {  let data = await Futad.findOne({});
-  console.log(data)
-  await res.json(data.response);
+  await res.json({response: data.response});
 };
 
 
