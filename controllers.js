@@ -12,20 +12,27 @@ exports.handleSave = async (req, res) => {
     id: req.body.id,
     face_image: req.body.face_image,
     qr_image: req.body.qr_image,
-    response: req.body.response,
-    image: req.body.image,
+    response: req.body.response
     });
 
-  // const HisFutadData = new HistoryFutad({
-  //   id: req.body.id,
-  //   face_image: req.body.face_image,
-  //   qr_image: req.body.qr_image,
-  //   response: req.body.response,
-  //   });
+  const HisFutadData = new HistoryFutad({
+    id: req.body.id,
+    face_image: req.body.face_image,
+    qr_image: req.body.qr_image,
+    response: req.body.response,
+    });
 
-    await FutadData.save().then(file => res.json(file));
-    // await HisFutadData.save().then(file => res.json(file));
+    await FutadData.save();
+    await HisFutadData.save().then(file => res.json(file));
 };
+
+
+exports.handleGetRes = async (req, res) => {  let data = await Futad.findOne({});
+  console.log(data)
+  await res.json(data.image);
+};
+
+
 
 exports.handleEntryImage = async (req, res) => {
 

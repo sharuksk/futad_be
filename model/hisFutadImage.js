@@ -4,20 +4,17 @@ const Schema = mongoose.Schema;
 
 const hisFutadImage = new Schema ({
     id:{
-        type: String,
-        required: true
+        type: String
     },
     face_image: {
-        type: String,
-        required: true
+        type: String
     },
     qr_image: {
-        type: String,
-        required: true
+        type: String
     },
     response: {
         type: Boolean,
-        required: true
+        default: false
     },
     entrytime: {
         type: Date,
