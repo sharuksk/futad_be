@@ -1,7 +1,8 @@
 const {
   handleSave,
-  handleEntryImage,
+  handleEntryFace,
   handleGetRes,
+  handleEntryQR,
 } = require("../controllers");
 const router = require("express").Router();
 
@@ -10,7 +11,8 @@ const router = require("express").Router();
 router.post('/save', handleSave)
 
 //Save customer face
-router.post('/storeface', handleEntryImage)
+router.post('/storeface', handleEntryFace)
+router.post('/storeqr', handleEntryQR)
 
 //Get resp
 router.get('/getresp', handleGetRes)
