@@ -1,6 +1,6 @@
 const {
   handleSave,
-  handleEntryFace,
+  handleChStatus,
   handleGetRes,
   handleEntryQR,
 } = require("../controllers");
@@ -11,7 +11,7 @@ const router = require("express").Router();
 router.post('/save', handleSave)
 
 //Save customer face
-router.post('/storeface', handleEntryFace)
+router.post('/changestatus', handleChStatus)
 router.post('/storeqr', handleEntryQR)
 
 //Get resp
