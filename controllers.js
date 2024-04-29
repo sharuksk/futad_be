@@ -42,17 +42,12 @@ exports.handleChStatus = async (req, res) => {
     // FutadData.save().then(file => res.json(file));
     //res.json(req.body.response);
     try{
-    if(!req.body.response){
+    if(req.body.response === "null"){
       await Futad.deleteMany();
       await Futad.insertMany({}).then( res.json({message: `Success Hell`}));
     }
     else{
-      if(req.body.response !== "null"){
       await Futad.findOneAndUpdate({response: req.body.response}).then( res.json({message: `Success ${req.body.response}`}));
-    }
-    else{
-      res.json("error occured");
-    }
     }
     } 
     catch{
