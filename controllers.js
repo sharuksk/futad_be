@@ -37,11 +37,18 @@ exports.handleGetRes = async (req, res) => {  let data = await Futad.findOne({})
 
 exports.handleChStatus = async (req, res) => {
 
-    const FutadData = new Futad({
-    response: req.body.response
-    });
+   
 
-    FutadData.save().then(file => res.json(file));
+    // FutadData.save().then(file => res.json(file));
+    //res.json(req.body.response);
+    if(!req.body.response){
+      await Futad.deleteMany();
+      await Futad.insertMany({}).then( res.json({message: `Success Hell`}));
+    }
+    else{
+      await Futad.findOneAndUpdate({response: req.body.response}).then( res.json({message: `Success ${req.body.response}`}));
+    }
+    
 
 
   // const StoreFace = new FaceImage({

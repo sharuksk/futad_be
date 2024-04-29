@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const futadImage = new Schema ({
     response: {
         type: Boolean,
-        default: false
+        default: null
     }
 });
 
