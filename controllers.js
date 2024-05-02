@@ -28,6 +28,14 @@ exports.handleSave = async (req, res) => {
     await HisFutadData.save().then(file => res.json(file));
 };
 
+exports.handleGetHisData = async (req, res) => {
+  //To clear History records  
+  //await HistoryFutad.deleteMany({}).then(data => (res.json("deleted")));
+  
+  let data = await HistoryFutad.find({}).select('qr_image');
+  await res.json(data);
+}
+
 
 exports.handleGetRes = async (req, res) => {  let data = await Futad.findOne({});
   await res.json({response: data.response});

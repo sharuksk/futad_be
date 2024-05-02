@@ -3,6 +3,7 @@ const {
   handleChStatus,
   handleGetRes,
   handleEntryQR,
+  handleGetHisData
 } = require("../controllers");
 const router = require("express").Router();
 
@@ -16,5 +17,7 @@ router.post('/storeqr', handleEntryQR)
 
 //Get resp
 router.get('/getresp', handleGetRes)
+router.get('/gethis', handleGetHisData)
+
 
 module.exports = router;
